@@ -5,7 +5,7 @@ it("should list movies", () => {
   cy.intercept("GET", "http://omdbapi.com/?apikey=d3d33238&s=")
   cy.get("input#searchText")
   .type("dune{enter}");
-  cy.get("button:first").click(); 
+  cy.get("button").click(); 
   cy.get("#movie-container").should("have.length.greaterThan",0)
 })
 
@@ -36,7 +36,7 @@ it("should list my movies", () => {
 it("should show error message", ()=>{
   cy.visit("/")
   cy.get("input#searchText")
-  cy.get("button:first").click(); 
+  cy.get("button").click(); 
   cy.get("#movie-container").should("have.text","Inga sökresultat att visa")
 })
 })
