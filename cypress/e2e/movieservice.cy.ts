@@ -1,12 +1,12 @@
 describe("Fetching api", () => {
-  it("should list movies from api", () => {
+  it("Should list movies from api", () => {
     cy.visit("/");
     cy.get("input#searchText").type("dune{enter}");
     cy.get("button").click();
     cy.get("#movie-container").should("have.length.greaterThan", 0);
   });
 
-  it("should list my movies", () => {
+  it("Should list my movies", () => {
     cy.visit("/");
     cy.intercept("http://omdbapi.com/*", {
       Search: [
@@ -26,16 +26,15 @@ describe("Fetching api", () => {
           Poster:
             "https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_SX300.jpg",
         },
-      ]
-      }).as("myapicall");
-  
+      ],
+    }).as("myapicall");
+
     cy.get("button:first").click();
     cy.get(".movie").should("have.length", 2);
-    cy.get("h3:first").should("have.text","Blade Runner")
-
+    cy.get("h3:first").should("have.text", "Blade Runner");
   });
-  
-  it("Should get right URL", ()=>{
+
+  it("Should get right URL", () => {
     cy.visit("/");
     cy.intercept("http://omdbapi.com/*", {
       Search: [
@@ -47,17 +46,20 @@ describe("Fetching api", () => {
           Poster:
             "https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_SX300.jpg",
         },
-      ]
-      }).as("myapicall");
-    cy.get("input#searchText").type("Blade Runner 2049")
+      ],
+    }).as("myapicall");
+    cy.get("input#searchText").type("Blade Runner 2049");
     cy.get("button").click();
-    cy.wait("@myapicall").its("request.url").should("contain", "Blade")
-  })
+    cy.wait("@myapicall").its("request.url").should("contain", "Blade");
+  });
 
-  it("should show error message", () => {
+  it("Should show error message", () => {
     cy.visit("/");
     cy.get("input#searchText");
     cy.get("button").click();
-    cy.get("#movie-container>p").should("have.text", "Inga sökresultat att visa");
+    cy.get("#movie-container>p").should(
+      "have.text",
+      "Inga sökresultat att visa"
+    );
   });
 });
