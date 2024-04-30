@@ -16,7 +16,7 @@ describe("Testing the moviesite", () => {
           imdbID: "tt0083658",
           Type: "movie",
           Poster:
-            "https://m.media-amazon.com/images/M/MV5BNzQzMzJhZTEtOWM4NS00MTdhLTg0YjgtMjM4MDRkZjUwZDBlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+            "https://cdn.kinocheck.com/i/mnatveje6f.jpg",
         },
         {
           Title: "Blade Runner 2049",
@@ -24,7 +24,7 @@ describe("Testing the moviesite", () => {
           imdbID: "tt1856101",
           Type: "movie",
           Poster:
-            "https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_SX300.jpg",
+            "https://images.cdn.yle.fi/image/upload/f_auto,fl_progressive/q_auto/w_2136,h_1201,c_crop,x_197,y_0/w_400/dpr_2/v1507231570/39-43367959d68706162d4.jpg",
         },
       ],
     }).as("myapicall");
@@ -44,7 +44,7 @@ describe("Testing the moviesite", () => {
           imdbID: "tt0083658",
           Type: "movie",
           Poster:
-            "https://m.media-amazon.com/images/M/MV5BNzQzMzJhZTEtOWM4NS00MTdhLTg0YjgtMjM4MDRkZjUwZDBlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+            "https://cdn.kinocheck.com/i/mnatveje6f.jpg",
         },
         {
           Title: "Blade Runner 2049",
@@ -52,7 +52,7 @@ describe("Testing the moviesite", () => {
           imdbID: "tt1856101",
           Type: "movie",
           Poster:
-            "https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_SX300.jpg",
+            "https://images.cdn.yle.fi/image/upload/f_auto,fl_progressive/q_auto/w_2136,h_1201,c_crop,x_197,y_0/w_400/dpr_2/v1507231570/39-43367959d68706162d4.jpg",
         },
       ],
     });
