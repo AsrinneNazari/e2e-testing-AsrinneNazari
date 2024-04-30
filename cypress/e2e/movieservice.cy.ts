@@ -34,7 +34,7 @@ describe("Testing the moviesite", () => {
     cy.get("h3:first").should("have.text", "Blade Runner");
   });
 
-  it("Should contain img in .movie", () => {
+  it("Should contain img in movie container", () => {
     cy.visit("/");
     cy.intercept("http://omdbapi.com/*", {
       Search: [
