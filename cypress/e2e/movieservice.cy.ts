@@ -1,4 +1,4 @@
-describe("Fetching api", () => {
+describe("Testing the moviesite", () => {
   it("Should list movies from api", () => {
     cy.visit("/");
     cy.get("input#searchText").type("dune{enter}");
@@ -34,6 +34,33 @@ describe("Fetching api", () => {
     cy.get("h3:first").should("have.text", "Blade Runner");
   });
 
+  it("Should contain img in .movie", () => {
+    cy.visit("/");
+    cy.intercept("http://omdbapi.com/*", {
+      Search: [
+        {
+          Title: "Blade Runner",
+          Year: "1982",
+          imdbID: "tt0083658",
+          Type: "movie",
+          Poster:
+            "https://m.media-amazon.com/images/M/MV5BNzQzMzJhZTEtOWM4NS00MTdhLTg0YjgtMjM4MDRkZjUwZDBlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+        },
+        {
+          Title: "Blade Runner 2049",
+          Year: "2017",
+          imdbID: "tt1856101",
+          Type: "movie",
+          Poster:
+            "https://m.media-amazon.com/images/M/MV5BNzA1Njg4NzYxOV5BMl5BanBnXkFtZTgwODk5NjU3MzI@._V1_SX300.jpg",
+        },
+      ],
+    });
+
+    cy.get("button:first").click();
+    cy.get(".movie").find("img");
+  });
+
   it("Should get right URL", () => {
     cy.visit("/");
     cy.intercept("http://omdbapi.com/*", {
@@ -53,8 +80,12 @@ describe("Fetching api", () => {
     cy.wait("@myapicall").its("request.url").should("contain", "Blade");
   });
 
-  it("Should show error message", () => {
+  it("Should show error message and statuscode 500", () => {
     cy.visit("/");
+    cy.intercept("GET", "http://omdbapi.com/*", {
+      statusCode: 500,
+    });
+
     cy.get("input#searchText");
     cy.get("button").click();
     cy.get("#movie-container>p").should(
