@@ -15,8 +15,7 @@ describe("Testing the moviesite", () => {
           Year: "1982",
           imdbID: "tt0083658",
           Type: "movie",
-          Poster:
-            "https://cdn.kinocheck.com/i/mnatveje6f.jpg",
+          Poster: "https://cdn.kinocheck.com/i/mnatveje6f.jpg",
         },
         {
           Title: "Blade Runner 2049",
@@ -43,8 +42,7 @@ describe("Testing the moviesite", () => {
           Year: "1982",
           imdbID: "tt0083658",
           Type: "movie",
-          Poster:
-            "https://cdn.kinocheck.com/i/mnatveje6f.jpg",
+          Poster: "https://cdn.kinocheck.com/i/mnatveje6f.jpg",
         },
         {
           Title: "Blade Runner 2049",
